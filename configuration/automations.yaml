@@ -1,0 +1,92 @@
+# Automatizaciones para guardar el último valor válido cuando el sensor está disponible
+
+- alias: Guardar último valor válido de pH
+  trigger:
+    - platform: state
+      entity_id: sensor.water_quality_ph
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.water_quality_ph') not in ['unknown', 'unavailable', 'none'] }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.ph_last_valid
+        value: "{{ states('sensor.water_quality_ph') | float }}"
+
+- alias: Guardar último valor válido de ORP
+  trigger:
+    - platform: state
+      entity_id: sensor.water_quality_oxidation_reduction_potential
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.water_quality_oxidation_reduction_potential') not in ['unknown', 'unavailable', 'none'] }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.orp_last_valid
+        value: "{{ states('sensor.water_quality_oxidation_reduction_potential') | float }}"
+
+- alias: Guardar último valor válido de temperatura
+  trigger:
+    - platform: state
+      entity_id: sensor.water_quality_temperatura
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.water_quality_temperatura') not in ['unknown', 'unavailable', 'none'] }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.temperatura_last_valid
+        value: "{{ states('sensor.water_quality_temperatura') | float }}"
+
+- alias: Guardar último valor válido de TDS
+  trigger:
+    - platform: state
+      entity_id: sensor.water_quality_total_dissolved_solids
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.water_quality_total_dissolved_solids') not in ['unknown', 'unavailable', 'none'] }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.tds_last_valid
+        value: "{{ states('sensor.water_quality_total_dissolved_solids') | float }}"
+
+- alias: Guardar último valor válido de conductividad
+  trigger:
+    - platform: state
+      entity_id: sensor.water_quality_electrical_conductivity
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.water_quality_electrical_conductivity') not in ['unknown', 'unavailable', 'none'] }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.conductividad_last_valid
+        value: "{{ states('sensor.water_quality_electrical_conductivity') | float }}"
+
+- alias: Guardar último valor válido de salinidad
+  trigger:
+    - platform: state
+      entity_id: sensor.water_quality_salinity
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.water_quality_salinity') not in ['unknown', 'unavailable', 'none'] }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.salinidad_last_valid
+        value: "{{ states('sensor.water_quality_salinity') | float }}"
+
+- alias: Guardar último valor válido de densidad
+  trigger:
+    - platform: state
+      entity_id: sensor.water_quality_specific_gravity
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.water_quality_specific_gravity') not in ['unknown', 'unavailable', 'none'] }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.densidad_last_valid
+        value: "{{ states('sensor.water_quality_specific_gravity') | float }}"

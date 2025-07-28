@@ -1,0 +1,50 @@
+input_number:
+  ph_last_valid:
+    name: Último pH válido
+    min: 0
+    max: 14
+    step: 0.01
+    unit_of_measurement: "pH"
+    mode: box
+  orp_last_valid:
+    name: Último ORP válido
+    min: 0
+    max: 1000
+    step: 1
+    unit_of_measurement: "mV"
+    mode: box
+  temperatura_last_valid:
+    name: Última temperatura válida
+    min: 0
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    mode: box
+  tds_last_valid:
+    name: Último TDS válido
+    min: 0
+    max: 10000
+    step: 10
+    unit_of_measurement: "ppm"
+    mode: box
+  conductividad_last_valid:
+    name: Última conductividad válida
+    min: 0
+    max: 20000
+    step: 100
+    unit_of_measurement: "µS/cm"
+    mode: box
+  salinidad_last_valid:
+    name: Última salinidad válida
+    min: 0
+    max: 10000
+    step: 10
+    unit_of_measurement: "ppm"
+    mode: box
+  densidad_last_valid:
+    name: Última densidad específica válida
+    min: 0.9
+    max: 1.1
+    step: 0.001
+    unit_of_measurement: "SG"
+    mode: box
